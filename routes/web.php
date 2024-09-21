@@ -24,37 +24,36 @@ Route::get('/kenalan', function () {
 });
 
 Route::get('/nama/{id}', function ($id) {
-    return 'hallo => '  .$id;
+    return 'hallo => '  . $id;
 });
 
-Route::get('/admin/tickets', function() {
+Route::get('/admin/tickets', function () {
     return view('admin.tickets');
 });
 
-Route::get('/admin/new_ticket', function() {
+Route::get('/admin/new_ticket', function () {
     return view('admin.new_ticket');
 });
 
-Route::get('/admin/teams', function() {
+Route::get('/admin/teams', function () {
     return view('admin.teams');
 });
 
-Route::get('/categories', function() {
+Route::get('/categories', function () {
     return 'Daftar kategori fasum';
 });
 
-Route::get('/kategori/halte', function() {
+Route::get('/kategori/halte', function () {
     return view('kategori.halte');
 });
 
-Route::get('/fasums', function() {
-    return'Daftar fasums';
+Route::get('/fasums', function () {
+    return 'Daftar fasums';
 });
 
-Route::get('/member', function() {
+Route::get('/member', function () {
     return 'Daftar warga kota';
 });
 
 Route::resource('place', PlaceController::class);
 Route::resource('ticket', TicketController::class);
-

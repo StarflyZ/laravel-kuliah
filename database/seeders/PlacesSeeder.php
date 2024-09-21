@@ -24,6 +24,7 @@ class PlacesSeeder extends Seeder
                 'province' => Str::random(40),
                 'latitude' => mt_rand(-90000000, 90000000) / 1000000,
                 'longtitude' => mt_rand(-90000000, 90000000) / 1000000,
+                'image' => '1.jpeg',
                 'type_id' => 2,
             ],
             [
@@ -35,6 +36,7 @@ class PlacesSeeder extends Seeder
                 'province' => Str::random(40),
                 'latitude' => mt_rand(-90000000, 90000000) / 1000000,
                 'longtitude' => mt_rand(-90000000, 90000000) / 1000000,
+                'image' => '2.jpg',
                 'type_id' => 1,
             ],
             [
@@ -46,6 +48,7 @@ class PlacesSeeder extends Seeder
                 'province' => Str::random(40),
                 'latitude' => mt_rand(-90000000, 90000000) / 1000000,
                 'longtitude' => mt_rand(-90000000, 90000000) / 1000000,
+                'image' => '3.jpg',
                 'type_id' => 3,
             ]
         ]);

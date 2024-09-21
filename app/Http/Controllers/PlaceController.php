@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -11,7 +12,8 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        //
+        $place = Place::all();
+        return view("place.index", ["data"=>$place]);
     }
 
     /**

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('province');
             $table->double('latitude', 8, 3);
             $table->double('longtitude', 8, 3);
+            $table->string('image');
         });
     }
 
@@ -29,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('places', function (Blueprint $table){
-            $table->dropColumn(['name', 'description', 'address', 'postcode', 'city', 'province','latitude', 'longtitude']);
+            $table->dropColumn(['name', 'description', 'address', 'postcode', 'city', 'province','latitude', 'longtitude', 'image']);
         });
     }
 };

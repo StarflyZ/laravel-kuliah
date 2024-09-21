@@ -10,30 +10,43 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <h2>Halte Report</h2>
-        <p>Data laporan tentang halte</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Ticket ID</th>
-                    <th>Report</th>
-                    <th>Name</th>
-                    <th>Created At</th>
-                </tr>
-            </thead>
-            <tbody>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Daftar Album Halte di Surabaya</h1>
+            <p class="lead text-muted">Tempat masyarakat untuk menunggu bus yang tercinta</p>
+            <p>
+              <a href="../place/" class="btn btn-primary my-2">Ke halaman daftar halte lengkap</a>
+              <a href="../" class="btn btn-secondary my-2">Kembali ke Home</a>
+            </p>
+          </div>
+        </div>
+      </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach ($data as $ticket)
-                    <tr>
-                        <td>{{ $ticket->id }}</td>
-                        <td>{{ $ticket->report }}</td>
-                        <td>{{ $ticket->place->name }}</td>
-                        <td>{{ $ticket->created_at }}</td>
-                    </tr>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <!-- Image Placeholder or dynamic image URL -->
+                    <img src="{{asset('images/'.$ticket->place_id.".jpg")}}" class="card-img-top" alt="Ticket Image">
+                      <div class="card-body">
+                        <p class="card-text">{{ $ticket->report }}</p>
+                        <p class="card-text"><strong>Location:</strong> {{ $ticket->place->name }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          </div>
+                          {{-- <small class="text-muted">{{ $ticket->created_at->diffForHumans() }}</small> --}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 @endforeach
-            </tbody>
-        </table>
+              </div>
+            </div>
+          </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

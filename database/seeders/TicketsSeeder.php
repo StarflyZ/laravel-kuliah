@@ -22,6 +22,10 @@ class TicketsSeeder extends Seeder
             [
                 'report' => Str::random(30),
                 'place_id' => 2,
+            ],
+            [
+                'report' => Str::random(30),
+                'place_id' => 3,
             ]
         ]);
     }

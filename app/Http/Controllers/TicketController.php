@@ -16,7 +16,7 @@ class TicketController extends Controller
         // dd($ticket->place->name);
         // echo $ticket->place->name;
 
-        // return view("ticket.index", compact($ticket));
+        // return view("kategori.halte", ["data"=>$ticket]);
         return view("ticket.index", ["data"=>$ticket]);
     }
 
