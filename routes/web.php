@@ -57,3 +57,4 @@ Route::get('/member', function () {
 
 Route::resource('place', PlaceController::class);
 Route::resource('ticket', TicketController::class);
+Route::get('/ticket/show/{id}', [TicketController::class, 'show']);

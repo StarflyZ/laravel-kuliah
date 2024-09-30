@@ -41,7 +41,8 @@ class TicketController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Ticket::find($id);
+        return view("ticket.show", compact("data"));
     }
 
     /**
