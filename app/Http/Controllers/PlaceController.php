@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PlaceController extends Controller
 {
@@ -14,6 +16,8 @@ class PlaceController extends Controller
     {
         $place = Place::all();
         return view("place.index", ["data"=>$place]);
+        // $places = Place::withCount('tickets')->get();
+        // return view('place.totalticket', compact('places'));
     }
 
     /**
@@ -37,7 +41,7 @@ class PlaceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -62,5 +66,12 @@ class PlaceController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function showTotalTicket()
+    {
+        $places = Place::all();
+        dd($places);
+        return view('place.totalticket', compact('places'));
     }
 }
