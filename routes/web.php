@@ -58,4 +58,10 @@ Route::get('/member', function () {
 Route::resource('place', PlaceController::class);
 Route::resource('ticket', TicketController::class);
 Route::get('/ticket/show/{id}', [TicketController::class, 'show']);
-Route::get('/place/showTotalTicket', [PlaceController::class, 'showTotalTicket']);
+Route::get('/place/show', [PlaceController::class, 'showTotalTicket']);
+Route::get('/layouts',function(){
+    return view('layouts/conquer2');
+});
+Route::get('/tampilticket',function(){
+    return view('tampil');
+});

@@ -70,7 +70,7 @@ class PlaceController extends Controller
 
     public function showTotalTicket()
     {
-        $places = Place::all();
+        $places = Place::withCount('tickets')->get();
         dd($places);
         return view('place.totalticket', compact('places'));
     }
