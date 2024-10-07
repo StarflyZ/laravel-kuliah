@@ -16,8 +16,6 @@ class PlaceController extends Controller
     {
         $place = Place::all();
         return view("place.index", ["data"=>$place]);
-        // $places = Place::withCount('tickets')->get();
-        // return view('place.totalticket', compact('places'));
     }
 
     /**
@@ -71,7 +69,6 @@ class PlaceController extends Controller
     public function showTotalTicket()
     {
         $places = Place::withCount('tickets')->get();
-        dd($places);
         return view('place.totalticket', compact('places'));
     }
 }

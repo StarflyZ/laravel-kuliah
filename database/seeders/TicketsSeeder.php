@@ -17,15 +17,15 @@ class TicketsSeeder extends Seeder
         DB::table('tickets')->insert([
             [
                 'report' => Str::random(30),
-                'place_id' => 1,
+                'place_id' => mt_rand(4,12),
             ],
             [
                 'report' => Str::random(30),
-                'place_id' => 2,
+                'place_id' => mt_rand(4,12),
             ],
             [
                 'report' => Str::random(30),
-                'place_id' => 3,
+                'place_id' => mt_rand(4,12),
             ]
         ]);
     }

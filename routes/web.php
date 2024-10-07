@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('kategori.halte');
-});
+Route::get('/', [PlaceController::class, 'index']);
 
 Route::get('/kenalan', function () {
     return view('kenalan', ['nama' => 'Steven']);
@@ -45,7 +43,7 @@ Route::get('/categories', function () {
 
 Route::get('/kategori/halte', function () {
     return view('kategori.halte');
-});
+})->name('kategori.halte');
 
 Route::get('/fasums', function () {
     return 'Daftar fasums';
@@ -55,10 +53,12 @@ Route::get('/member', function () {
     return 'Daftar warga kota';
 });
 
-Route::resource('place', PlaceController::class);
+Route::resource('place/index', PlaceController::class);
 Route::resource('ticket', TicketController::class);
+Route::get('/ticket', [TicketController::class, 'index'])->name('ticket.index');
 Route::get('/ticket/show/{id}', [TicketController::class, 'show']);
-Route::get('/place/show', [PlaceController::class, 'showTotalTicket']);
+Route::get('/place/showTotalTicket', [PlaceController::class, 'showTotalTicket'])->name('place.totalticket');
+Route::get('/place/index', [PlaceController::class, 'index'])->name('place.index');
 Route::get('/layouts',function(){
     return view('layouts/conquer2');
 });

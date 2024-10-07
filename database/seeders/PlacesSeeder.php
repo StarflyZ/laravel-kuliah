@@ -24,7 +24,7 @@ class PlacesSeeder extends Seeder
                 'province' => Str::random(40),
                 'latitude' => mt_rand(-90000000, 90000000) / 1000000,
                 'longtitude' => mt_rand(-90000000, 90000000) / 1000000,
-                'image' => '1.jpeg',
+                'image' => '1.jpg',
                 'type_id' => 2,
             ],
             [
