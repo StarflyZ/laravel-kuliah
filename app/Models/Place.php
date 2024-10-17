@@ -10,6 +10,6 @@ class Place extends Model
 {
     use HasFactory;
     public function tickets():HasMany{
-        return $this->hasMany(Ticket::class);
+        return $this->hasMany(Ticket::class, 'place_id', 'id');
     }
 }

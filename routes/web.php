@@ -54,14 +54,27 @@ Route::get('/member', function () {
 });
 
 Route::resource('place/index', PlaceController::class);
+
 Route::resource('ticket', TicketController::class);
+
 Route::get('/ticket', [TicketController::class, 'index'])->name('ticket.index');
+
 Route::get('/ticket/show/{id}', [TicketController::class, 'show']);
+
 Route::get('/place/showTotalTicket', [PlaceController::class, 'showTotalTicket'])->name('place.totalticket');
+
+Route::get('/place/showlist', [PlaceController::class, 'showlist'])->name('place.showlist');
+
 Route::get('/place/index', [PlaceController::class, 'index'])->name('place.index');
-Route::get('/layouts',function(){
+
+Route::get('/layouts', function () {
     return view('layouts/conquer2');
 });
-Route::get('/tampilticket',function(){
+
+Route::get('/tampilticket', function () {
     return view('tampil');
 });
+
+Route::post("/place/showinfo", [PlaceController::class, 'showinfo'])->name("place.showinfo");
+
+Route::post("/place/showTickets", [PlaceController::class, 'showTickets'])->name("place.showTickets");

@@ -48,6 +48,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href={{asset("ctemplate/css/custom.css")}} rel="stylesheet" type="text/css" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
+    @yield('javascript')
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -201,7 +202,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src="./assets/img/avatar2.jpg")}} alt="" />
+                                            <img src={{asset("./ctemplate/img/avatar2.jpg")}} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -216,7 +217,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src="./assets/img/avatar3.jpg")}} alt="" />
+                                            <img src={{asset("./ctemplate/img/avatar3.jpg")}} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -232,7 +233,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src="./assets/img/avatar1.jpg")}} alt="" />
+                                            <img src={{asset("./ctemplate/img/avatar1.jpg")}} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -247,7 +248,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src="./assets/img/avatar2.jpg")}} alt="" />
+                                            <img src={{asset("./ctemplate/img/avatar2.jpg")}} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -262,7 +263,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src="./assets/img/avatar3.jpg")}} alt="" />
+                                            <img src={{asset("./ctemplate/img/avatar3.jpg")}} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -479,14 +480,6 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN SIDEBAR MENU -->
                 <!-- DOC: for circle icon style menu apply page-sidebar-menu-circle-icons class right after sidebar-toggler-wrapper -->
                 <ul class="page-sidebar-menu">
-                    <li class="sidebar-toggler-wrapper">
-                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                        <div class="sidebar-toggler">
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                    </li>
                     <li class="sidebar-search-wrapper">
                         <form class="search-form" role="form" action="index.html" method="get">
                             <div class="input-icon right">
@@ -560,36 +553,36 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
     <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
     <!-- BEGIN CORE PLUGINS -->
-    <script src={{asset("ctemplate/jquery-1.11.0.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery-migrate-1.2.1.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery-1.11.0.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery-migrate-1.2.1.min.js")}} type="text/javascript"></script>
     <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-    <script src={{asset("ctemplate/jquery-ui/jquery-ui-1.10.3.custom.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/bootstrap/js/bootstrap.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery-slimscroll/jquery.slimscroll.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery.blockui.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/uniform/jquery.uniform.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/bootstrap/js/bootstrap.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery-slimscroll/jquery.slimscroll.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery.blockui.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/uniform/jquery.uniform.min.js")}} type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src={{asset("ctemplate/jqvmap/jqvmap/jquery.vmap.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jqvmap/jqvmap/maps/jquery.vmap.russia.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jqvmap/jqvmap/maps/jquery.vmap.world.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jqvmap/jqvmap/maps/jquery.vmap.europe.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jqvmap/jqvmap/maps/jquery.vmap.germany.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jqvmap/jqvmap/maps/jquery.vmap.usa.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jqvmap/jqvmap/data/jquery.vmap.sampledata.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery.peity.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery.pulsate.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery-knob/js/jquery.knob.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/flot/jquery.flot.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/flot/jquery.flot.resize.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/bootstrap-daterangepicker/moment.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/bootstrap-daterangepicker/daterangepicker.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/gritter/js/jquery.gritter.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/jquery.vmap.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery.peity.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery.pulsate.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery-knob/js/jquery.knob.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/flot/jquery.flot.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/flot/jquery.flot.resize.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/bootstrap-daterangepicker/moment.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/bootstrap-daterangepicker/daterangepicker.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/gritter/js/jquery.gritter.js")}} type="text/javascript"></script>
     <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
-    <script src={{asset("ctemplate/fullcalendar/fullcalendar/fullcalendar.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery-easypiechart/jquery.easypiechart.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/jquery.sparkline.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/fullcalendar/fullcalendar/fullcalendar.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery-easypiechart/jquery.easypiechart.min.js")}} type="text/javascript"></script>
+    <script src={{asset("ctemplate/plugins/jquery.sparkline.min.js")}} type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src={{asset("ctemplate/scripts/app.js")}} type="text/javascript"></script>
