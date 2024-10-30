@@ -28,24 +28,28 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
         type="text/css" />
-    <link href={{asset("ctemplate/plugins/font-awesome/css/font-awesome.min.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/plugins/simple-line-icons/simple-line-icons.min.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/plugins/bootstrap/css/bootstrap.min.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/plugins/uniform/css/uniform.default.css")}} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/plugins/font-awesome/css/font-awesome.min.css') }} rel="stylesheet"
+        type="text/css" />
+    <link href={{ asset('ctemplate/plugins/simple-line-icons/simple-line-icons.min.css') }} rel="stylesheet"
+        type="text/css" />
+    <link href={{ asset('ctemplate/plugins/bootstrap/css/bootstrap.min.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/plugins/uniform/css/uniform.default.css') }} rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-    <link href={{asset("ctemplate/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/plugins/fullcalendar/fullcalendar/fullcalendar.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/plugins/jqvmap/jqvmap/jqvmap.css")}} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }} rel="stylesheet"
+        type="text/css" />
+    <link href={{ asset('ctemplate/plugins/fullcalendar/fullcalendar/fullcalendar.css') }} rel="stylesheet"
+        type="text/css" />
+    <link href={{ asset('ctemplate/plugins/jqvmap/jqvmap/jqvmap.css') }} rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGIN STYLES -->
     <!-- BEGIN THEME STYLES -->
-    <link href={{asset("ctemplate/css/style-conquer.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/css/style.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/css/style-responsive.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/css/plugins.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/css/pages/tasks.css")}} rel="stylesheet" type="text/css" />
-    <link href={{asset("ctemplate/css/themes/default.css")}} rel="stylesheet" type="text/css" id="style_color" />
-    <link href={{asset("ctemplate/css/custom.css")}} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/css/style-conquer.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/css/style.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/css/style-responsive.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/css/plugins.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/css/pages/tasks.css') }} rel="stylesheet" type="text/css" />
+    <link href={{ asset('ctemplate/css/themes/default.css') }} rel="stylesheet" type="text/css" id="style_color" />
+    <link href={{ asset('ctemplate/css/custom.css') }} rel="stylesheet" type="text/css" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
     @yield('javascript')
@@ -61,7 +65,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- BEGIN LOGO -->
             <div class="page-logo">
                 <a href="index.html">
-                    <img src={{asset("ctemplate/img/logo.png")}} alt="logo" />
+                    <img src={{ asset('ctemplate/img/logo.png') }} alt="logo" />
                 </a>
             </div>
             <form class="search-form search-form-header" role="form" action="index.html">
@@ -73,7 +77,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
             <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <img src={{asset("ctemplate/img/menu-toggler.png")}} alt="" />
+                <img src={{ asset('ctemplate/img/menu-toggler.png') }} alt="" />
             </a>
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN TOP NAVIGATION MENU -->
@@ -202,7 +206,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src={{asset("./ctemplate/img/avatar2.jpg")}} alt="" />
+                                            <img src={{ asset('./ctemplate/img/avatar2.jpg') }} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -217,7 +221,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src={{asset("./ctemplate/img/avatar3.jpg")}} alt="" />
+                                            <img src={{ asset('./ctemplate/img/avatar3.jpg') }} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -233,7 +237,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src={{asset("./ctemplate/img/avatar1.jpg")}} alt="" />
+                                            <img src={{ asset('./ctemplate/img/avatar1.jpg') }} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -248,7 +252,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src={{asset("./ctemplate/img/avatar2.jpg")}} alt="" />
+                                            <img src={{ asset('./ctemplate/img/avatar2.jpg') }} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -263,7 +267,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="inbox.html?a=view">
                                         <span class="photo">
-                                            <img src={{asset("./ctemplate/img/avatar3.jpg")}} alt="" />
+                                            <img src={{ asset('./ctemplate/img/avatar3.jpg') }} alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -434,7 +438,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <li class="dropdown user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                         data-close-others="true">
-                        <img alt="" src={{asset("ctemplate/img/avatar3_small.jpg")}} />
+                        <img alt="" src={{ asset('ctemplate/img/avatar3_small.jpg') }} />
                         <span class="username username-hide-on-mobile">Nick </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
@@ -489,15 +493,15 @@ License: You must have a valid license purchased only from themeforest(the above
                         </form>
                     </li>
                     <li class="{{ request()->routeIs('place.index') ? 'active' : '' }}">
-                        <a href="{{ route('place.index') }}"> 
+                        <a href="{{ route('place.index') }}">
                             <i class="icon-home"></i>
                             <span class="title">Places</span>
                             <span class="arrow {{ request()->routeIs('place.index') ? 'active' : '' }}"></span>
                         </a>
                     </li>
-                    
+
                     <li class="{{ request()->routeIs('place.totalticket') ? 'active' : '' }}">
-                        <a href="{{ route('place.totalticket') }}"> 
+                        <a href="{{ route('place.totalticket') }}">
                             <i class="icon-puzzle"></i>
                             <span class="title">Places</span>
                             <span class="arrow {{ request()->routeIs('place.totalticket') ? 'active' : '' }}"></span>
@@ -517,6 +521,13 @@ License: You must have a valid license purchased only from themeforest(the above
                             <span class="arrow {{ request()->routeIs('ticket.index') ? 'active' : '' }}"></span>
                         </a>
                     </li>
+                    <li class="{{ request()->routeIs('contribution.index') ? 'active' : '' }}">
+                        <a href="{{ route('contribution.index') }}">
+                            <i class="icon-home"></i>
+                            <span class="title">Contribution</span>
+                            <span class="arrow {{ request()->routeIs('contribution.index') ? 'active' : '' }}"></span>
+                        </a>
+                    </li>
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>
@@ -526,10 +537,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="page-content-wrapper">
             <div class="page-content">
                 <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-                
+
                 <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
                 <!-- BEGIN STYLE CUSTOMIZER -->
-                
+
                 <!-- END BEGIN STYLE CUSTOMIZER -->
                 <!-- BEGIN PAGE HEADER-->
                 <h3 class="page-title">
@@ -553,41 +564,47 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
     <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
     <!-- BEGIN CORE PLUGINS -->
-    <script src={{asset("ctemplate/plugins/jquery-1.11.0.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery-migrate-1.2.1.min.js")}} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jquery-1.11.0.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jquery-migrate-1.2.1.min.js') }} type="text/javascript"></script>
     <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-    <script src={{asset("ctemplate/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/bootstrap/js/bootstrap.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery-slimscroll/jquery.slimscroll.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery.blockui.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/uniform/jquery.uniform.min.js")}} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/bootstrap/js/bootstrap.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}
+        type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }} type="text/javascript">
+    </script>
+    <script src={{ asset('ctemplate/plugins/jquery.blockui.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/uniform/jquery.uniform.min.js') }} type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/jquery.vmap.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery.peity.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery.pulsate.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery-knob/js/jquery.knob.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/flot/jquery.flot.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/flot/jquery.flot.resize.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/bootstrap-daterangepicker/moment.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/bootstrap-daterangepicker/daterangepicker.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/gritter/js/jquery.gritter.js")}} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/jquery.vmap.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js') }} type="text/javascript">
+    </script>
+    <script src={{ asset('ctemplate/plugins/jquery.peity.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jquery.pulsate.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/jquery-knob/js/jquery.knob.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/flot/jquery.flot.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/flot/jquery.flot.resize.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/bootstrap-daterangepicker/moment.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/bootstrap-daterangepicker/daterangepicker.js') }} type="text/javascript">
+    </script>
+    <script src={{ asset('ctemplate/plugins/gritter/js/jquery.gritter.js') }} type="text/javascript"></script>
     <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
-    <script src={{asset("ctemplate/plugins/fullcalendar/fullcalendar/fullcalendar.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery-easypiechart/jquery.easypiechart.min.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/plugins/jquery.sparkline.min.js")}} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/plugins/fullcalendar/fullcalendar/fullcalendar.min.js') }} type="text/javascript">
+    </script>
+    <script src={{ asset('ctemplate/plugins/jquery-easypiechart/jquery.easypiechart.min.js') }} type="text/javascript">
+    </script>
+    <script src={{ asset('ctemplate/plugins/jquery.sparkline.min.js') }} type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src={{asset("ctemplate/scripts/app.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/scripts/index.js")}} type="text/javascript"></script>
-    <script src={{asset("ctemplate/scripts/tasks.js")}} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/scripts/app.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/scripts/index.js') }} type="text/javascript"></script>
+    <script src={{ asset('ctemplate/scripts/tasks.js') }} type="text/javascript"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script>
         jQuery(document).ready(function() {

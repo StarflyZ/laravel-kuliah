@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
@@ -78,3 +79,6 @@ Route::get('/tampilticket', function () {
 Route::post("/place/showinfo", [PlaceController::class, 'showinfo'])->name("place.showinfo");
 
 Route::post("/place/showTickets", [PlaceController::class, 'showTickets'])->name("place.showTickets");
+
+Route::resource("/contribution", ContributionController::class);
+
