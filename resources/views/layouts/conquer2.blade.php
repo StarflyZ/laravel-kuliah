@@ -528,6 +528,13 @@ License: You must have a valid license purchased only from themeforest(the above
                             <span class="arrow {{ request()->routeIs('contribution.index') ? 'active' : '' }}"></span>
                         </a>
                     </li>
+                    <li class="{{ request()->routeIs('citizen.index') ? 'active' : '' }}">
+                        <a href="{{ route('citizen.index') }}">
+                            <i class="fa fa-user"></i>
+                            <span class="title">Citizen</span>
+                            <span class="arrow {{ request()->routeIs('contribution.index') ? 'active' : '' }}"></span>
+                        </a>
+                    </li>
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>
@@ -543,9 +550,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
                 <!-- END BEGIN STYLE CUSTOMIZER -->
                 <!-- BEGIN PAGE HEADER-->
-                <h3 class="page-title">
+                {{-- <h3 class="page-title">
                     Total Pengaduan Tiket <small>Halte di Surabaya</small>
-                </h3>
+                </h3> --}}
                 <div class="page-bar">
                     @yield('content')
                 </div>

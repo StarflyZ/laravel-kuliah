@@ -12,7 +12,8 @@ class CitizenController extends Controller
      */
     public function index()
     {
-        //
+        $citizen = Citizen::all();
+        return view('citizen.index', compact('citizen'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CitizenController extends Controller
      */
     public function create()
     {
-        //
+        return view('citizen.formcreate');
     }
 
     /**
@@ -28,7 +29,13 @@ class CitizenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Citizen();
+        $data->citizen_id = $request->get('citizen_id');
+        $data->name = $request->get('name');
+        $data->address = $request->get('address');
+        $data->save();
+
+        return redirect()->route('citizen.index')->with('status', 'Data warga berhasil ditambahkan !');
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitizenController;
 use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\TicketController;
@@ -81,4 +82,6 @@ Route::post("/place/showinfo", [PlaceController::class, 'showinfo'])->name("plac
 Route::post("/place/showTickets", [PlaceController::class, 'showTickets'])->name("place.showTickets");
 
 Route::resource("/contribution", ContributionController::class);
+
+Route::resource("/citizen", CitizenController::class);
 

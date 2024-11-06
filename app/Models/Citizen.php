@@ -11,6 +11,7 @@ class Citizen extends Model
     protected $primaryKey = 'citizen_id';
     public $incrementing = false;
     protected $keyType = 'string';
+    public $timestamps = false;
     public function contributions(){
         return $this->hasMany(Contribution::class, "citizen_id", "citizen_id");
     }
