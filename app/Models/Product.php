@@ -9,6 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $primaryKey = 'product_id';
+    public $timestamps = false;
     public function contributsions()
     {
         return $this->belongsToMany(

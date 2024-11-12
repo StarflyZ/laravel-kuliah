@@ -1,5 +1,17 @@
     @extends('layouts.conquer2')
     @section('content')
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="../citizen/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>Create Employee</li>
+        </ul>
+    </div>
+    <h3>List of Contribution</h3>
+    <a class="btn btn-primary" href="{{route('contribution.create')}}"> + New Contribution</a>
         <table class="table">
             <thead>
                 <tr>

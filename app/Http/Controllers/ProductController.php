@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::all();
+        return view('product.index', compact('product'));
     }
 
     /**
@@ -20,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.formcreate');
     }
 
     /**
@@ -28,7 +29,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Product();
+        $data->product_id = $request->get('product_id');
+        $data->name = $request->get('name');
+        $data->save();
+
+        return redirect()->route('product.index')->with('status', 'Data produk berhasil ditambahkan !');
     }
 
     /**

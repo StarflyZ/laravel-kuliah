@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contribution;
+use App\Models\Employee;
+use App\Models\Citizen;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ContributionController extends Controller
@@ -13,7 +16,7 @@ class ContributionController extends Controller
     public function index()
     {
         $contributions = Contribution::all();
-        
+
         return view("contribution.index", compact("contributions"));
     }
 
@@ -22,7 +25,12 @@ class ContributionController extends Controller
      */
     public function create()
     {
-        //
+        $employees = Employee::all();
+        $citizens = Citizen::all();
+        $products = Product::all();
+        $contributions = Contribution::all();
+
+        return view("contribution.formcreate", compact("employees", "citizens", "products"));
     }
 
     /**
@@ -30,7 +38,25 @@ class ContributionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => 'required|exists:employee_accounts,username',
+            'citizen_id' => 'required|exists:citizens,citizen_id',
+            'products' => 'required|array',
+            'products.*.id' => 'required|exists:products,product_id',
+            'products.*.amount' => 'required|numeric|min:1',
+        ]);
+
+        $contribution = Contribution::create([
+            'contribution_date' => now(),
+            'username' => $validatedData['username'],
+            'citizen_id' => $validatedData['citizen_id'],
+        ]);
+
+        foreach ($validatedData['products'] as $product) {
+            $contribution->products()->attach($product['id'], ['amount' => $product['amount']]);
+        }
+
+        return redirect()->route('contribution.index')->with('success', 'Contribution added successfully!');
     }
 
     /**
@@ -63,5 +89,34 @@ class ContributionController extends Controller
     public function destroy(Contribution $contribution)
     {
         //
+    }
+
+    public function contributionProduct_create()
+    {
+        $contributions = Contribution::all();
+        $products = Product::all();
+        return view("contribution_product.formcreate", compact("contributions", "products"));
+    }
+
+    public function contributionProduct_store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'contribution_id' => 'required|exists:contributions,contribution_id',
+            'product_id' => 'required|exists:products,product_id',
+            'amount' => 'required|numeric|min:1',
+        ]);
+
+        $contribution = Contribution::findOrFail($validatedData['contribution_id']);
+        $exists = $contribution->products()
+            ->where('contribution_product.product_id', $validatedData['product_id']) 
+            ->exists();
+
+        if (!$exists) {
+            $contribution->products()->attach($validatedData['product_id'], ['amount' => $validatedData['amount']]);
+        } else {
+            return redirect()->back()->with('error', 'The selected product is already linked to this contribution.');
+        }
+
+        return redirect()->back()->with('success', 'Contribution Product added successfully!');
     }
 }

@@ -28,7 +28,9 @@
             <tr>
                 <td>{{ $p->name }}</td>
                 <td>{{ $p->pivot->amount }}</td>
+                {{-- <a href="">+ New Contribution Product</a> --}}
             </tr>
         @endforeach
     </tbody>
 </table>
+<a href="{{ route('contribution.contributionProduct_create') }}">+ New Contribution Product</a>

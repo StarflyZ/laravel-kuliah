@@ -10,6 +10,7 @@ class Contribution extends Model
     use HasFactory;
 
     protected $primaryKey = 'contribution_id';
+    protected $fillable = ['contribution_date', 'username', 'citizen_id'];
     public function employee()
     {
         return $this->belongsTo(Employee::class, "username", "username");
@@ -27,4 +28,5 @@ class Contribution extends Model
             "product_id"
         )->withPivot("amount");
     }
+    public $timestamps = false;
 }

@@ -12,6 +12,7 @@ class Employee extends Model
     protected $primaryKey = 'username';
     public $incrementing = false;
     protected $keyType = 'string';
+    public $timestamps = false;
     public function contributions()
     {
         return $this->hasMany(Contribution::class, "username", "username");

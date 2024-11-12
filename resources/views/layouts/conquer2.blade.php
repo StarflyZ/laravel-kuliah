@@ -532,7 +532,28 @@ License: You must have a valid license purchased only from themeforest(the above
                         <a href="{{ route('citizen.index') }}">
                             <i class="fa fa-user"></i>
                             <span class="title">Citizen</span>
-                            <span class="arrow {{ request()->routeIs('contribution.index') ? 'active' : '' }}"></span>
+                            <span class="arrow {{ request()->routeIs('citizen.index') ? 'active' : '' }}"></span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->routeIs('product.index') ? 'active' : '' }}">
+                        <a href="{{ route('product.index') }}">
+                            <i class="fa fa-android"></i>
+                            <span class="title">Product</span>
+                            <span class="arrow {{ request()->routeIs('product.index') ? 'active' : '' }}"></span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->routeIs('employee.index') ? 'active' : '' }}">
+                        <a href="{{ route('employee.index') }}">
+                            <i class="fa fa-users"></i>
+                            <span class="title">Employee</span>
+                            <span class="arrow {{ request()->routeIs('employee.index') ? 'active' : '' }}"></span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->routeIs('employee.index') ? 'active' : '' }}">
+                        <a href="{{ route('employee.index') }}">
+                            <i class="fa fa-users"></i>
+                            <span class="title">Employee</span>
+                            <span class="arrow {{ request()->routeIs('employee.index') ? 'active' : '' }}"></span>
                         </a>
                     </li>
                 </ul>

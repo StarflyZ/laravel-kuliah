@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\CitizenController;
 use App\Http\Controllers\ContributionController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContributionProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +88,12 @@ Route::resource("/contribution", ContributionController::class);
 
 Route::resource("/citizen", CitizenController::class);
 
+Route::resource("/product", ProductController::class);
+
+Route::resource("/employee", EmployeeController::class);
+
+Route::get('/contributions_product/formcreate', [ContributionController::class, 'contributionProduct_create'])->name('contribution.contributionProduct_create');
+
+Route::post('/contributions/product/formcreate', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProducts_store');
+
+Route::post('/contributions/product/store', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProduct_store');

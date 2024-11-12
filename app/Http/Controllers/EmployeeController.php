@@ -12,7 +12,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employee = Employee::all();
+        return view('employee.index', compact('employee'));
     }
 
     /**
@@ -20,7 +21,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.formcreate');
     }
 
     /**
@@ -28,7 +29,13 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Employee();
+        $data->username = $request->get('username');
+        $data->email = $request->get('email');
+        $data->name = $request->get('name');
+        $data->save();
+
+        return redirect()->route('employee.index')->with('status', 'Data karyawan berhasil ditambahkan !');
     }
 
     /**
