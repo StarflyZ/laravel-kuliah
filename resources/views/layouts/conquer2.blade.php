@@ -549,13 +549,6 @@ License: You must have a valid license purchased only from themeforest(the above
                             <span class="arrow {{ request()->routeIs('employee.index') ? 'active' : '' }}"></span>
                         </a>
                     </li>
-                    <li class="{{ request()->routeIs('employee.index') ? 'active' : '' }}">
-                        <a href="{{ route('employee.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Employee</span>
-                            <span class="arrow {{ request()->routeIs('employee.index') ? 'active' : '' }}"></span>
-                        </a>
-                    </li>
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>

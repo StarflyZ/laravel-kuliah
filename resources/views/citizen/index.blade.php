@@ -14,13 +14,14 @@
         </ul>
     </div>
     <h3>List of Citizen</h3>
-    <a class="btn btn-primary" href="{{route('citizen.create')}}"> + New Citizen</a>
+    <a class="btn btn-primary" href="{{ route('citizen.create') }}"> + New Citizen</a>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Citizen</th>
                 <th>Employee</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +30,16 @@
                     <td>{{ $c->citizen_id }}</td>
                     <td>{{ $c->name }}</td>
                     <td>{{ $c->address }}</td>
-                    <td>{{ $c->contribution_date }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{ route('citizen.edit', $c->citizen_id) }}">Edit</a>
+                        <form method="POST" action="{{ route('citizen.destroy', $c->citizen_id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="delete"
+                                class="btn btn-danger"
+                              onclick="return confirm('Are you sure to delete {{ $c->citizen_id }} - {{ $c->name }} ? ');">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

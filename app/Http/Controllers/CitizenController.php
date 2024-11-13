@@ -51,7 +51,7 @@ class CitizenController extends Controller
      */
     public function edit(Citizen $citizen)
     {
-        //
+        return view('citizen.edit', compact('citizen'));
     }
 
     /**
@@ -59,7 +59,11 @@ class CitizenController extends Controller
      */
     public function update(Request $request, Citizen $citizen)
     {
-        //
+        //request = hasil post name
+        $citizen->name = $request->name;
+        $citizen->address = $request->address;
+        $citizen->save();
+        return redirect()->route('citizen.index')->with('status', 'Data warga berhasil diubah !');
     }
 
     /**
@@ -67,6 +71,11 @@ class CitizenController extends Controller
      */
     public function destroy(Citizen $citizen)
     {
-        //
+        try {
+            $citizen->delete();
+            return redirect()->route('citizen.index')->with('status', 'Data warga sukses dihapus !');
+        } catch (\PDOException $e) {
+            return redirect()->route('citizen.index')->with('status', 'Data warga gagal dihapus !');
+        }
     }
 }

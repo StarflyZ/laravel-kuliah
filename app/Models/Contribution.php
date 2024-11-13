@@ -17,7 +17,7 @@ class Contribution extends Model
     }
     public function citizen()
     {
-        return $this->belongsTo(Citizen::class, "citizen_id", "citizen_id");
+        return $this->belongsTo(Citizen::class, "citizen_id", "citizen_id")->withTrashed();
     }
     public function products()
     {
