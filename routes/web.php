@@ -97,3 +97,8 @@ Route::get('/contributions_product/formcreate', [ContributionController::class, 
 Route::post('/contributions/product/formcreate', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProducts_store');
 
 Route::post('/contributions/product/store', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProduct_store');
+
+Route::delete('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_delete'])
+    ->name('contribution.contributionProduct_delete');
+
+

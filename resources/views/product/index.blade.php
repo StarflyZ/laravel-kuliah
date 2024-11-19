@@ -20,6 +20,7 @@
             <tr>
                 <th>ID</th>
                 <th>Product Name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,16 @@
                 <tr>
                     <td>{{ $p->product_id }}</td>
                     <td>{{ $p->name }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{ route('product.edit', $p->product_id) }}">Edit</a>
+                        <form method="POST" action="{{ route('product.destroy', $p->product_id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="delete"
+                                class="btn btn-danger"
+                              onclick="return confirm('Are you sure to delete {{ $p->product_id }} - {{ $p->name }} ? ');">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

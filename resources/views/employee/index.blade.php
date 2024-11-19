@@ -21,6 +21,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,16 @@
                     <td>{{ $e->username }}</td>
                     <td>{{ $e->email }}</td>
                     <td>{{ $e->name }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{ route('employee.edit', $e->username) }}">Edit</a>
+                        <form method="POST" action="{{ route('employee.destroy', $e->username) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="delete"
+                                class="btn btn-danger"
+                              onclick="return confirm('Are you sure to delete {{ $e->username }} - {{ $e->name }} ? ');">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -72,7 +72,8 @@ class ContributionController extends Controller
      */
     public function edit(Contribution $contribution)
     {
-        //
+        $employees = Employee::all();
+        return view('contribution.edit', compact('contribution', 'employees'));
     }
 
     /**
@@ -80,7 +81,9 @@ class ContributionController extends Controller
      */
     public function update(Request $request, Contribution $contribution)
     {
-        //
+        $contribution->username = $request->username;
+        $contribution->save();
+        return redirect()->route('contribution.index')->with('status', 'Data employee berhasil diubah !');
     }
 
     /**
@@ -88,7 +91,12 @@ class ContributionController extends Controller
      */
     public function destroy(Contribution $contribution)
     {
-        //
+        try {
+            $contribution->delete();
+            return redirect()->route('contribution.index')->with('status', 'Data kontributsi sukses dihapus !');
+        } catch (\PDOException $e) {
+            return redirect()->route('contribution.index')->with('status', 'Data kontributsi gagal dihapus !');
+        }
     }
 
     public function contributionProduct_create()
@@ -108,7 +116,7 @@ class ContributionController extends Controller
 
         $contribution = Contribution::findOrFail($validatedData['contribution_id']);
         $exists = $contribution->products()
-            ->where('contribution_product.product_id', $validatedData['product_id']) 
+            ->where('contribution_product.product_id', $validatedData['product_id'])
             ->exists();
 
         if (!$exists) {
@@ -118,5 +126,15 @@ class ContributionController extends Controller
         }
 
         return redirect()->back()->with('success', 'Contribution Product added successfully!');
+    }
+
+    public function contributionProduct_delete(Contribution $contribution, Product $product)
+    {
+        try {
+            $contribution->products()->detach($product->product_id);
+            return redirect()->back()->with('success', 'Contribution Product deleted successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete Contribution Product: ' . $e->getMessage());
+        }
     }
 }

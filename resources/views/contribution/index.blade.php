@@ -1,59 +1,68 @@
-    @extends('layouts.conquer2')
-    @section('content')
-    <div class="page-bar">
-        <ul class="page-breadcrumb">
-            <li>
-                <i class="fa fa-home"></i>
-                <a href="../citizen/">Home</a>
-                <i class="fa fa-angle-right"></i>
-            </li>
-            <li>Create Employee</li>
-        </ul>
-    </div>
-    <h3>List of Contribution</h3>
-    <a class="btn btn-primary" href="{{route('contribution.create')}}"> + New Contribution</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Citizen</th>
-                    <th>Employee</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($contributions as $c)
-                    <tr>
-                        <td>{{ $c->contribution_id }}</td>
-                        <td>{{ $c->citizen->name }}</td>
-                        <td>{{ $c->employee->name }}</td>
-                        <td>{{ $c->contribution_date }}</td>
-                        <td><a class="btn btn-primary" href="#detail-modal" data-toggle="modal"
-                                onclick="getDetailData({{ $c->contribution_id }})">Show details</a></td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="modal fade" id="detail-modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Contribution</h4>
-                    </div>
-                    <div class="modal-body" id="msg"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
+@extends('layouts.conquer2')
+@section('content')
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="../citizen/">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>Create Employee</li>
+    </ul>
+</div>
+<h3>List of Contribution</h3>
+<a class="btn btn-primary" href="{{route('contribution.create')}}"> + New Contribution</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Citizen</th>
+            <th>Employee</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($contributions as $c)
+        <tr>
+            <td>{{ $c->contribution_id }}</td>
+            <td>{{ $c->citizen->name }}</td>
+            <td>{{ $c->employee->name }}</td>
+            <td>{{ $c->contribution_date }}</td>
+            <td>
+                <a class="btn btn-primary" href="#detail-modal" data-toggle="modal"
+                    onclick="getDetailData({{ $c->contribution_id }})">Show details</a>
+                <a class="btn btn-warning" href="{{ route('contribution.edit', $c->contribution_id) }}">Edit</a>
+                <form method="POST" action="{{ route('contribution.destroy', $c->contribution_id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="delete" class="btn btn-danger"
+                        onclick="return confirm('Are you sure to delete {{ $c->contribution_id }} - {{ $c->name }} ? ');">
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<div class="modal fade" id="detail-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Contribution</h4>
+            </div>
+            <div class="modal-body" id="msg"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-    @endsection
-    @section('javascript')
-        <script>
-            function getDetailData(id) {
+    </div>
+</div>
+@endsection
+@section('javascript')
+<script>
+    function getDetailData(id) {
                 $.ajax({
                     type: "GET",
                     url: "/contribution/" + id,
@@ -62,5 +71,5 @@
                     }
                 })
             }
-        </script>
-    @endsection
+</script>
+@endsection

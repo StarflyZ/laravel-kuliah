@@ -50,7 +50,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -58,7 +58,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->name = $request->name;        
+        $product->save();
+        return redirect()->route('product.index')->with('status', 'Data product berhasil diubah !');
     }
 
     /**
@@ -66,6 +68,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        try {
+            $product->delete();
+            return redirect()->route('product.index')->with('status', 'Data product sukses dihapus !');
+        } catch (\PDOException $e) {
+            return redirect()->route('product.index')->with('status', 'Data product gagal dihapus !');
+        }
     }
 }

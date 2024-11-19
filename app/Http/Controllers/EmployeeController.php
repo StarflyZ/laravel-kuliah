@@ -51,7 +51,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employee.edit', compact('employee'));
     }
 
     /**
@@ -59,7 +59,10 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $employee->email = $request->email;      
+        $employee->name = $request->name;  
+        $employee->save();
+        return redirect()->route('employee.index')->with('status', 'Data employee berhasil diubah !');
     }
 
     /**
@@ -67,6 +70,11 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        try {
+            $employee->delete();
+            return redirect()->route('employee.index')->with('status', 'Data employee sukses dihapus !');
+        } catch (\PDOException $e) {
+            return redirect()->route('employee.index')->with('status', 'Data employee gagal dihapus !');
+        }
     }
 }

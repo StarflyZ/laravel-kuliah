@@ -33,6 +33,7 @@ class CitizenController extends Controller
         $data->citizen_id = $request->get('citizen_id');
         $data->name = $request->get('name');
         $data->address = $request->get('address');
+        $data->telephone = $request->get('telephone');
         $data->save();
 
         return redirect()->route('citizen.index')->with('status', 'Data warga berhasil ditambahkan !');

@@ -21,15 +21,25 @@
         <tr>
             <th>Product</th>
             <th>Amount</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($contribution->products as $p)
-            <tr>
-                <td>{{ $p->name }}</td>
-                <td>{{ $p->pivot->amount }}</td>
-                {{-- <a href="">+ New Contribution Product</a> --}}
-            </tr>
+        <tr>
+            <td>{{ $p->name }}</td>
+            <td>{{ $p->pivot->amount }}</td>
+            <td>
+                <a class="btn btn-warning" href="{{ route('product.edit', $p->product_id) }}">Edit</a>
+                <form
+                    action="{{ route('contribution.contributionProduct_delete', [$contribution->contribution_id, $p->product_id]) }}"
+                    method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
         @endforeach
     </tbody>
 </table>
