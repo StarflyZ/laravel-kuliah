@@ -63,6 +63,7 @@ class CitizenController extends Controller
         //request = hasil post name
         $citizen->name = $request->name;
         $citizen->address = $request->address;
+        $citizen->telephone = $request->telephone;
         $citizen->save();
         return redirect()->route('citizen.index')->with('status', 'Data warga berhasil diubah !');
     }
@@ -78,5 +79,47 @@ class CitizenController extends Controller
         } catch (\PDOException $e) {
             return redirect()->route('citizen.index')->with('status', 'Data warga gagal dihapus !');
         }
+    }
+
+    public function getEditForm(Request $request)
+    {
+        $id = $request->id;
+        $citizen = Citizen::find($id);
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => view('citizen.getEditForm', compact('citizen'))->render()
+        ), 200);
+    }
+
+    public function getEditFormB(Request $request)
+    {
+        $id = $request->id;
+        $citizen = Citizen::find($id);
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => view('citizen.getEditFormB', compact('citizen'))->render()
+        ), 200);
+    }
+
+    public function saveDataTD(Request $request)
+    {
+        $id = $request->id;
+        $citizen = Citizen::find($id);
+        $citizen->name = $request->name;
+        $citizen->address = $request->address;
+        $citizen->telephone = $request->telephone;
+        $citizen->save();
+        return response()->json(array('status' => 'oke', 'msg' => 'type data is up-to-date !'), 200);
+    }
+
+    public function deleteData(Request $request)
+    {
+        $id = $request->id;
+        $citizen = Citizen::find($id);
+        $citizen->delete();
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => 'type data is removed !'
+        ), 200);
     }
 }

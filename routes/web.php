@@ -101,4 +101,11 @@ Route::post('/contributions/product/store', [ContributionController::class, 'con
 Route::delete('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_delete'])
     ->name('contribution.contributionProduct_delete');
 
+Route::post('citizen/getEditForm', [CitizenController::class, 'getEditForm'])->name("citizen.getEditForm");
+
+Route::post('citizen/getEditFormB', [CitizenController::class, 'getEditFormB'])->name("citizen.getEditFormB");
+
+Route::post('citizen/saveDataTD', [CitizenController::class,'saveDataTD'])->name("citizen.saveDataTD");
+
+Route::post('citizen/deleteData',[CitizenController::class,'deleteData'])->name("citizen.deleteData");
 

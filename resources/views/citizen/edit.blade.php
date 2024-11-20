@@ -22,8 +22,13 @@
                 <textarea class="form-control" id="address" name="address" rows="4" placeholder="Enter your address here"
                     aria-describedby="address">{{ $citizen->address }}</textarea>
                 <small id="name" class="form-text text-muted">Please write down Citizen Address here.</small>
-                
             </div> 
+            <div class="form-group">
+                <label for="telephone">Citizen Telephone</label>
+                <input type="number" class="form-control" id="telephone" name="telephone" aria-describedby="telephone"
+                    placeholder="Enter Citizen telephone">
+                <small id="telephone" class="form-text text-muted">Please write down Citizen telephone here.</small>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     @endsection
