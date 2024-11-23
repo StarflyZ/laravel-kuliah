@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContributionProductController;
+use App\Models\Employee;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,4 +109,12 @@ Route::post('citizen/getEditFormB', [CitizenController::class, 'getEditFormB'])-
 Route::post('citizen/saveDataTD', [CitizenController::class,'saveDataTD'])->name("citizen.saveDataTD");
 
 Route::post('citizen/deleteData',[CitizenController::class,'deleteData'])->name("citizen.deleteData");
+
+Route::post('product/getEditForm', [ProductController::class, 'getEditForm'])->name("product.getEditForm");
+
+Route::post('product/deleteData',[ProductController::class,'deleteData'])->name("product.deleteData");
+
+Route::post('employee/getEditForm', [EmployeeController::class, 'getEditForm'])->name("employee.getEditForm");
+
+Route::post('employee/deleteData',[EmployeeController::class,'deleteData'])->name("employee.deleteData");
 

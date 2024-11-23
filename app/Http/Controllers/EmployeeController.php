@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EmployeeController extends Controller
 {
@@ -76,5 +77,34 @@ class EmployeeController extends Controller
         } catch (\PDOException $e) {
             return redirect()->route('employee.index')->with('status', 'Data employee gagal dihapus !');
         }
+    }
+
+    public function getEditForm(Request $request)
+    {
+        Log::info('Request username received:', ['username' => $request->username]);
+        $username = $request->username;
+        $employee = Employee::where('username', $username)->first();
+        if (!$employee) {
+            Log::warning('Employee not found:', ['username' => $username]);
+            return response()->json([
+                'status' => 'error',
+                'msg' => 'Employee not found'
+            ], 404);
+        }
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => view('employee.getEditForm', compact('employee'))->render()
+        ), 200);
+    }
+
+    public function deleteData(Request $request)
+    {
+        $username = $request->username;
+        $employee = Employee::find($username);
+        $employee->delete();
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => 'type data is removed !'
+        ), 200);
     }
 }

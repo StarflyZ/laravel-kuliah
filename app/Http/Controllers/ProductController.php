@@ -75,4 +75,25 @@ class ProductController extends Controller
             return redirect()->route('product.index')->with('status', 'Data product gagal dihapus !');
         }
     }
+
+    public function getEditForm(Request $request)
+    {
+        $id = $request->id;
+        $product = Product::find($id);
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => view('product.getEditForm', compact('product'))->render()
+        ), 200);
+    }
+
+    public function deleteData(Request $request)
+    {
+        $id = $request->id;
+        $product = Product::find($id);
+        $product->delete();
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => 'type data is removed !'
+        ), 200);
+    }
 }
