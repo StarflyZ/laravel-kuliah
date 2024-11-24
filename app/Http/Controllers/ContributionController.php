@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\Citizen;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ContributionController extends Controller
 {
@@ -15,9 +16,12 @@ class ContributionController extends Controller
      */
     public function index()
     {
+        $employees = Employee::all();
+        $citizens = Citizen::all();
+        $products = Product::all();
         $contributions = Contribution::all();
 
-        return view("contribution.index", compact("contributions"));
+        return view("contribution.index", compact("contributions", "employees", "citizens", "products"));
     }
 
     /**
@@ -135,6 +139,48 @@ class ContributionController extends Controller
             return redirect()->back()->with('success', 'Contribution Product deleted successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to delete Contribution Product: ' . $e->getMessage());
+        }
+    }
+
+    public function getEditForm(Request $request)
+    {
+        $contribution = Contribution::findOrFail($request->id);
+        $citizens = Citizen::all();
+        $employees = Employee::all();
+        $products = Product::all();
+
+        $view = view('contribution.getEditForm', compact('contribution', 'citizens', 'employees', 'products'))->render();
+
+        return response()->json(['msg' => $view]);
+    }
+
+    public function deleteData(Request $request)
+    {
+        $id = $request->id;
+        $contribution = Contribution::find($id);
+        $contribution->delete();
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => 'type data is removed !'
+        ), 200);
+    }
+
+    public function contributionProduct_deleteTR(Contribution $contribution, Product $product)
+    {
+        Log::info("Deleting product {$product->product_id} from contribution {$contribution->id}");
+        try {
+            $contribution->products()->detach($product->product_id);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Contribution Product deleted successfully!'
+            ]);
+        } catch (\Exception $e) {
+            Log::error("Error: " . $e->getMessage());
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to delete Contribution Product: ' . $e->getMessage()
+            ], 500);
         }
     }
 }

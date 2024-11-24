@@ -106,15 +106,23 @@ Route::post('citizen/getEditForm', [CitizenController::class, 'getEditForm'])->n
 
 Route::post('citizen/getEditFormB', [CitizenController::class, 'getEditFormB'])->name("citizen.getEditFormB");
 
-Route::post('citizen/saveDataTD', [CitizenController::class,'saveDataTD'])->name("citizen.saveDataTD");
+Route::post('citizen/saveDataTD', [CitizenController::class, 'saveDataTD'])->name("citizen.saveDataTD");
 
-Route::post('citizen/deleteData',[CitizenController::class,'deleteData'])->name("citizen.deleteData");
+Route::post('citizen/deleteData', [CitizenController::class, 'deleteData'])->name("citizen.deleteData");
 
 Route::post('product/getEditForm', [ProductController::class, 'getEditForm'])->name("product.getEditForm");
 
-Route::post('product/deleteData',[ProductController::class,'deleteData'])->name("product.deleteData");
+Route::post('product/deleteData', [ProductController::class, 'deleteData'])->name("product.deleteData");
 
 Route::post('employee/getEditForm', [EmployeeController::class, 'getEditForm'])->name("employee.getEditForm");
 
-Route::post('employee/deleteData',[EmployeeController::class,'deleteData'])->name("employee.deleteData");
+Route::post('employee/deleteData', [EmployeeController::class, 'deleteData'])->name("employee.deleteData");
+
+Route::post('/contribution/getEditForm', [ContributionController::class, 'getEditForm'])->name('contribution.getEditForm');
+
+Route::post('/contribution/deleteData', [ContributionController::class, 'deleteData'])->name('contribution.deleteData');
+
+Route::post('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_deleteTR'])
+    ->name('contribution.contributionProduct_deleteTR');
+
 
