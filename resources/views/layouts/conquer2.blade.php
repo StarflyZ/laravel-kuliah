@@ -439,7 +439,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                         data-close-others="true">
                         <img alt="" src={{ asset('ctemplate/img/avatar3_small.jpg') }} />
-                        <span class="username username-hide-on-mobile">Nick </span>
+                        <span class="username username-hide-on-mobile">nick </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu">
@@ -464,6 +464,11 @@ License: You must have a valid license purchased only from themeforest(the above
                         </li>
                         <li>
                             <a href="login.html"><i class="fa fa-key"></i> Log Out</a>
+                        </li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf<input type="submit" value="logout" class='btn btn-danger' />
+                            </form>
                         </li>
                     </ul>
                 </li>

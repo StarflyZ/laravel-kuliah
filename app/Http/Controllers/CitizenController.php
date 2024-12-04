@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Citizen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CitizenController extends Controller
 {
@@ -74,6 +75,7 @@ class CitizenController extends Controller
     public function destroy(Citizen $citizen)
     {
         try {
+            $this->authorize('delete-permission', Auth::user());
             $citizen->delete();
             return redirect()->route('citizen.index')->with('status', 'Data warga sukses dihapus !');
         } catch (\PDOException $e) {

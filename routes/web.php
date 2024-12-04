@@ -9,6 +9,7 @@ use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContributionProductController;
 use App\Models\Employee;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,9 @@ use App\Models\Employee;
 |
 */
 
+Auth::routes();
 Route::get('/', [PlaceController::class, 'index']);
+
 
 Route::get('/kenalan', function () {
     return view('kenalan', ['nama' => 'Steven']);
@@ -84,45 +87,47 @@ Route::get('/tampilticket', function () {
 Route::post("/place/showinfo", [PlaceController::class, 'showinfo'])->name("place.showinfo");
 
 Route::post("/place/showTickets", [PlaceController::class, 'showTickets'])->name("place.showTickets");
+Route::middleware(["auth"])->group(function () {
+    Route::resource("/contribution", ContributionController::class);
+    Route::resource("/citizen", CitizenController::class);
 
-Route::resource("/contribution", ContributionController::class);
+    Route::resource("/product", ProductController::class);
 
-Route::resource("/citizen", CitizenController::class);
+    Route::resource("/employee", EmployeeController::class);
 
-Route::resource("/product", ProductController::class);
+    Route::get('/contributions_product/formcreate', [ContributionController::class, 'contributionProduct_create'])->name('contribution.contributionProduct_create');
 
-Route::resource("/employee", EmployeeController::class);
+    Route::post('/contributions/product/formcreate', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProducts_store');
 
-Route::get('/contributions_product/formcreate', [ContributionController::class, 'contributionProduct_create'])->name('contribution.contributionProduct_create');
+    Route::post('/contributions/product/store', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProduct_store');
 
-Route::post('/contributions/product/formcreate', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProducts_store');
+    Route::delete('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_delete'])
+        ->name('contribution.contributionProduct_delete');
 
-Route::post('/contributions/product/store', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProduct_store');
+    Route::post('citizen/getEditForm', [CitizenController::class, 'getEditForm'])->name("citizen.getEditForm");
 
-Route::delete('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_delete'])
-    ->name('contribution.contributionProduct_delete');
+    Route::post('citizen/getEditFormB', [CitizenController::class, 'getEditFormB'])->name("citizen.getEditFormB");
 
-Route::post('citizen/getEditForm', [CitizenController::class, 'getEditForm'])->name("citizen.getEditForm");
+    Route::post('citizen/saveDataTD', [CitizenController::class, 'saveDataTD'])->name("citizen.saveDataTD");
 
-Route::post('citizen/getEditFormB', [CitizenController::class, 'getEditFormB'])->name("citizen.getEditFormB");
+    Route::post('citizen/deleteData', [CitizenController::class, 'deleteData'])->name("citizen.deleteData");
 
-Route::post('citizen/saveDataTD', [CitizenController::class, 'saveDataTD'])->name("citizen.saveDataTD");
+    Route::post('product/getEditForm', [ProductController::class, 'getEditForm'])->name("product.getEditForm");
 
-Route::post('citizen/deleteData', [CitizenController::class, 'deleteData'])->name("citizen.deleteData");
+    Route::post('product/deleteData', [ProductController::class, 'deleteData'])->name("product.deleteData");
 
-Route::post('product/getEditForm', [ProductController::class, 'getEditForm'])->name("product.getEditForm");
+    Route::post('employee/getEditForm', [EmployeeController::class, 'getEditForm'])->name("employee.getEditForm");
 
-Route::post('product/deleteData', [ProductController::class, 'deleteData'])->name("product.deleteData");
+    Route::post('employee/deleteData', [EmployeeController::class, 'deleteData'])->name("employee.deleteData");
 
-Route::post('employee/getEditForm', [EmployeeController::class, 'getEditForm'])->name("employee.getEditForm");
+    Route::post('/contribution/getEditForm', [ContributionController::class, 'getEditForm'])->name('contribution.getEditForm');
 
-Route::post('employee/deleteData', [EmployeeController::class, 'deleteData'])->name("employee.deleteData");
+    Route::post('/contribution/deleteData', [ContributionController::class, 'deleteData'])->name('contribution.deleteData');
 
-Route::post('/contribution/getEditForm', [ContributionController::class, 'getEditForm'])->name('contribution.getEditForm');
+    Route::post('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_deleteTR'])
+        ->name('contribution.contributionProduct_deleteTR');
+});
 
-Route::post('/contribution/deleteData', [ContributionController::class, 'deleteData'])->name('contribution.deleteData');
+Auth::routes();
 
-Route::post('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_deleteTR'])
-    ->name('contribution.contributionProduct_deleteTR');
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

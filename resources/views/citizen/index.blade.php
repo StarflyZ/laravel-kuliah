@@ -24,7 +24,9 @@
                 <th>Citizen</th>
                 <th>Employee</th>
                 <th>Telephone</th>
-                <th>Action</th>
+                @can('delete-permission', Auth::user())
+                    <th>Action</th>
+                @endcan
             </tr>
         </thead>
         <tbody>
@@ -35,24 +37,26 @@
                     <td id="td_address{{ $c->citizen_id }}">{{ $c->address }}</td>
                     <td id="td_telephone{{ $c->citizen_id }}">{{ $c->telephone }}</td>
                     <td>
-                        <a class="btn btn-warning" href="{{ route('citizen.edit', $c->citizen_id) }}">Edit</a>
+                        @can('delete-permission', Auth::user())
+                            <a class="btn btn-warning" href="{{ route('citizen.edit', $c->citizen_id) }}">Edit</a>
 
-                        <a href="#modalEditA" class="btn btn-warning" data-toggle="modal"
-                            onclick="getEditForm({{ $c->citizen_id }})">Edit Type A</a>
+                            <a href="#modalEditA" class="btn btn-warning" data-toggle="modal"
+                                onclick="getEditForm({{ $c->citizen_id }})">Edit Type A</a>
 
-                        <a href="#modalEditB" class="btn btn-info" data-toggle="modal"
-                            onclick="getEditFormB({{ $c->citizen_id }})">Edit Type B</a>
+                            <a href="#modalEditB" class="btn btn-info" data-toggle="modal"
+                                onclick="getEditFormB({{ $c->citizen_id }})">Edit Type B</a>
 
-                        <form method="POST" action="{{ route('citizen.destroy', $c->citizen_id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="delete" class="btn btn-danger"
-                                onclick="return confirm('Are you sure to delete {{ $c->citizen_id }} - {{ $c->name }} ? ');">
-                        </form>
+                            <form method="POST" action="{{ route('citizen.destroy', $c->citizen_id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="delete" class="btn btn-danger"
+                                    onclick="return confirm('Are you sure to delete {{ $c->citizen_id }} - {{ $c->name }} ? ');">
+                            </form>
 
-                        <a href="#" class="btn btn-danger"
-                            onclick="if(confirm('Are you sure to delete {{ $c->citizen_id }} - {{ $c->name }} ?')) deleteDataRemoveTR({{ $c->citizen_id }})">Delete
-                            without Reload</a>
+                            <a href="#" class="btn btn-danger"
+                                onclick="if(confirm('Are you sure to delete {{ $c->citizen_id }} - {{ $c->name }} ?')) deleteDataRemoveTR({{ $c->citizen_id }})">Delete
+                                without Reload</a>
+                        @endcan
                     </td>
                 </tr>
             @endforeach
