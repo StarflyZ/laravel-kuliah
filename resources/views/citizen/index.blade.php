@@ -37,6 +37,13 @@
                     <td id="td_address{{ $c->citizen_id }}">{{ $c->address }}</td>
                     <td id="td_telephone{{ $c->citizen_id }}">{{ $c->telephone }}</td>
                     <td>
+                        <img height='100px' src="{{ asset('/profpic/' . $c->citizen_id . '.jpg') }}" /><br>
+                        <a href="{{ url('citizen/uploadProfpic/' . $c->citizen_id) }}">
+                            <button class='btn btn-xs btn-default'>upload</button>
+                        </a>
+                    </td>
+
+                    <td>
                         @can('delete-permission', Auth::user())
                             <a class="btn btn-warning" href="{{ route('citizen.edit', $c->citizen_id) }}">Edit</a>
 

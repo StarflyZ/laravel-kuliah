@@ -96,4 +96,23 @@ class PlaceController extends Controller
             'msg' => view('place.showTickets', compact('name', 'data'))->render()
         ), 200);
     }
+
+    public function uploadPhoto(Request $request)
+    {
+        $place_id = $request->id;
+        $place = Place::find($place_id);
+        return view('place.formUploadPhoto', compact('place'));
+    }
+
+    public function savePhoto(Request $request)
+    {
+        $file = $request->file("file_photo");
+        $folder = 'images';
+        $filename = time() . "_" . $file->getClientOriginalName();
+        $file->move($folder, $filename);
+        $place = Place::find($request->id);
+        $place->image = $filename;
+        $place->save();
+        return redirect()->route('place.index')->with('status', 'photo uploaded');
+    }
 }

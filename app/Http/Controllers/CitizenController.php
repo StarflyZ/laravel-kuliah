@@ -124,4 +124,19 @@ class CitizenController extends Controller
             'msg' => 'type data is removed !'
         ), 200);
     }
+    public function uploadProfpic(Request $request)
+    {
+        $citizen_id = $request->citizen_id;
+        $citizen = Citizen::find($citizen_id);
+        return view('citizen.formUploadProfpic', compact('citizen'));
+    }
+
+    public function saveProfpic(Request $request)
+    {
+        $file = $request->file("file_profpic");
+        $folder = 'profpic';
+        $filename = $request->citizen_id . ".jpg";
+        $file->move($folder, $filename);
+        return redirect()->route('citizen.index')->with('status', 'Profile Picture Successfully Uploaded');
+    }
 }

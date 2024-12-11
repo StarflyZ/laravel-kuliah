@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -12,8 +13,19 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-        return view('product.index', compact('product'));
+        $products = Product::all();
+        foreach ($products as $p) {
+            $directory = public_path('products/' . $p->product_id);
+            if (File::exists($directory)) {
+                $files = File::files($directory);
+                $filenames = [];
+                foreach ($files as $file) {
+                    $filenames[] = $file->getFilename();
+                }
+                $p['filenames'] = $filenames;
+            }
+        }
+        return view('product.index', compact('products'));
     }
 
     /**
@@ -58,7 +70,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->name = $request->name;        
+        $product->name = $request->name;
         $product->save();
         return redirect()->route('product.index')->with('status', 'Data product berhasil diubah !');
     }
@@ -95,5 +107,11 @@ class ProductController extends Controller
             'status' => 'oke',
             'msg' => 'type data is removed !'
         ), 200);
+    }
+
+    public function delPhoto(Request $request)
+    {
+        File::delete(public_path() . "/" . $request->filepath);
+        return redirect()->route('products.index')->with('status', 'photo deleted');
     }
 }

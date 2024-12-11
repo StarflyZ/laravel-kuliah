@@ -89,45 +89,56 @@ Route::post("/place/showinfo", [PlaceController::class, 'showinfo'])->name("plac
 Route::post("/place/showTickets", [PlaceController::class, 'showTickets'])->name("place.showTickets");
 Route::middleware(["auth"])->group(function () {
     Route::resource("/contribution", ContributionController::class);
+
     Route::resource("/citizen", CitizenController::class);
 
     Route::resource("/product", ProductController::class);
-
+    
     Route::resource("/employee", EmployeeController::class);
-
+    
     Route::get('/contributions_product/formcreate', [ContributionController::class, 'contributionProduct_create'])->name('contribution.contributionProduct_create');
-
+    
     Route::post('/contributions/product/formcreate', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProducts_store');
-
+    
     Route::post('/contributions/product/store', [ContributionController::class, 'contributionProduct_store'])->name('contribution.contributionProduct_store');
-
+    
     Route::delete('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_delete'])
-        ->name('contribution.contributionProduct_delete');
-
+    ->name('contribution.contributionProduct_delete');
+    
     Route::post('citizen/getEditForm', [CitizenController::class, 'getEditForm'])->name("citizen.getEditForm");
-
+    
     Route::post('citizen/getEditFormB', [CitizenController::class, 'getEditFormB'])->name("citizen.getEditFormB");
-
+    
     Route::post('citizen/saveDataTD', [CitizenController::class, 'saveDataTD'])->name("citizen.saveDataTD");
-
+    
     Route::post('citizen/deleteData', [CitizenController::class, 'deleteData'])->name("citizen.deleteData");
-
+    
     Route::post('product/getEditForm', [ProductController::class, 'getEditForm'])->name("product.getEditForm");
-
+    
     Route::post('product/deleteData', [ProductController::class, 'deleteData'])->name("product.deleteData");
-
+    
     Route::post('employee/getEditForm', [EmployeeController::class, 'getEditForm'])->name("employee.getEditForm");
-
+    
     Route::post('employee/deleteData', [EmployeeController::class, 'deleteData'])->name("employee.deleteData");
 
     Route::post('/contribution/getEditForm', [ContributionController::class, 'getEditForm'])->name('contribution.getEditForm');
-
+    
     Route::post('/contribution/deleteData', [ContributionController::class, 'deleteData'])->name('contribution.deleteData');
-
+    
     Route::post('/contribution/{contribution}/product/{product}', [ContributionController::class, 'contributionProduct_deleteTR'])
-        ->name('contribution.contributionProduct_deleteTR');
+    ->name('contribution.contributionProduct_deleteTR');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('citizen/uploadProfpic/{citizen_id}', [citizenController::class, 'uploadProfpic']);
+
+Route::post('citizen/saveProfpic', [citizenController::class, 'saveProfpic']);
+
+Route::get('place/uploadPhoto/{id}', [PlaceController::class, 'uploadPhoto']);
+
+Route::post('place/savePhoto', [PlaceController::class, 'savePhoto']);
+
+Route::post('product/delPhoto', [ProductController::class, 'delPhoto']);
