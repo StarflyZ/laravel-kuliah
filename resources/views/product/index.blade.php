@@ -36,7 +36,7 @@
                                 <form style="display: inline" method="POST" action="{{ url('product/delPhoto') }}">
                                     @csrf
                                     <input type="hidden"
-                                        value="{{ 'product/' . $p->product_id . '/' . $filename }}“ name='filepath' />
+                                        value="{{ 'products/' . $p->product_id . '/' . $filename }}" name='filepath' />
                                      <input type="submit"
                                         value="delete" class="btn btn-danger btn-xs"
                                         onclick="return confirm('Are you sure ?');">
